@@ -54,13 +54,16 @@ def get_bottle_plan():
 
     # each potion bottle is 100 ml
     can_bottle = result//100 #// is an operator that divides and rounds down to nearest whole 
-
-    return [
-            {
-                "potion_type": [0, 100, 0, 0],
-                "quantity": can_bottle,
-            }
-        ]
+    
+    if can_bottle == 0:
+        return []
+    else:
+        return [
+                {
+                    "potion_type": [0, 100, 0, 0],
+                    "quantity": can_bottle,
+                }
+            ]
 
 if __name__ == "__main__":
     print(get_bottle_plan())
