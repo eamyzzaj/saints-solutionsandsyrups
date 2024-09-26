@@ -46,6 +46,11 @@ def post_deliver_barrels(barrels_delivered: list[Barrel], order_id: int):
 def get_wholesale_purchase_plan(wholesale_catalog: list[Barrel]):
     """ 
     logic for if you have enough gold for barrels, don't change values in database
+
+    pseudocode:
+    if # if potions in inventory is less than 10:
+        purchase a new small green potion barrel
+
     """
     print(wholesale_catalog)
 

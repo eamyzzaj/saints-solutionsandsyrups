@@ -34,6 +34,10 @@ def get_catalog():
     }
     seperate multiple entries with comma (,)
     """
+    
+    """
+    .scalar returns info as integer -> if doesn't work use another function
+    """
     sql = "SELECT num_green_potions FROM global-inventory"
     with db.engine.begin() as connection:
         result = connection.execute(sqlalchemy.text(sql)).scalar()
