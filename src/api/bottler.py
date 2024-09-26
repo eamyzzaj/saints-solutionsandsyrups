@@ -52,7 +52,8 @@ def get_bottle_plan():
     with db.engine.begin() as connection:
         result = connection.execute(sqlalchemy.text(sql)).scalar()
 
-    can_bottle = result//100 #// is an operator that divides and rounnds down to nearest whole #
+    # each potion bottle is 100 ml
+    can_bottle = result//100 #// is an operator that divides and rounds down to nearest whole 
 
     return [
             {
