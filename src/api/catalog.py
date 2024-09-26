@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from src import database as db
 
 router = APIRouter()
 
@@ -33,16 +34,11 @@ def get_catalog():
     }
     seperate multiple entries with comma (,)
     """
+    sql = "SELECT num_green_potions FROM global-inventory"
+    with db.engine.begin() as connection:
+        result = connection.execute(sqlalchemy.text(sql)).scalar()
 
     return [
-            {
-                "sku": "RED_POTION_0",
-                "name": "red potion",
-                "quantity": 1,
-                "price": 50,
-                "potion_type": [100, 0, 0, 0],
-            },
-
             {
                 "sku": "GREEN_POTION_0",
                 "name": "green potion",
@@ -51,5 +47,7 @@ def get_catalog():
                 "potion_type": [0, 100, 0, 0],
             }
         ]
+
+
 
     

@@ -34,7 +34,9 @@ class Barrel(BaseModel):
 
 @router.post("/deliver/{order_id}")
 def post_deliver_barrels(barrels_delivered: list[Barrel], order_id: int):
-    """ """
+    """ 
+    where you actually change values in database
+    """
     print(f"barrels delievered: {barrels_delivered} order_id: {order_id}")
 
     return "OK"
@@ -42,12 +44,14 @@ def post_deliver_barrels(barrels_delivered: list[Barrel], order_id: int):
 # Gets called once a day
 @router.post("/plan")
 def get_wholesale_purchase_plan(wholesale_catalog: list[Barrel]):
-    """ """
+    """ 
+    logic for if you have enough gold for barrels, don't change values in database
+    """
     print(wholesale_catalog)
 
     return [
         {
-            "sku": "SMALL_RED_BARREL",
+            "sku": "SMALL_GREEN_BARREL",
             "quantity": 1,
         }
     ]
